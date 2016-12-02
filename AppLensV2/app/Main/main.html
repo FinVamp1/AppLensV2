@@ -36,11 +36,13 @@
                 <md-progress-circular md-mode="indeterminate" md-diameter="30"></md-progress-circular>
             </md-list-item>
 
-            <md-list-item class="md-2-line" ng-repeat="detector in main.detectors | filter:main.searchText | orderBy:'Rank'" ng-class="{'selected' : main.selectedItem === detector.Name}" ng-click="main.setSelectedItem(detector.Name)" >
+            <md-list-item class="md-2-line" ng-repeat="detector in main.detectors | filter:main.searchText | orderBy:['-Correlated','Rank']" ng-class="{'selected' : main.selectedItem === detector.Name}" ng-click="main.setSelectedItem(detector.Name)"
+                          style="border-left: 8px solid;"
+                           ng-style="{'border-left-color':(detector.Correlated|corelatedcolor)}">
                 
                 <!--<ng-letter-avatar data="{{::detector.DisplayName}}" class="md-avatar-icon" shape="round" fontFamily="Roboto,sans-serif"></ng-letter-avatar>-->
 
-                <div class="md-list-item-text" style="margin-left:10px">
+                <div class="md-list-item-text" style="margin-left:10px;">
                     <h3>{{ :: detector.DisplayName }}</h3>
                 </div>
 

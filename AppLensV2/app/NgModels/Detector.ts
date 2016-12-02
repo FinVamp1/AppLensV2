@@ -9,7 +9,8 @@ module SupportCenter {
             public DisplayName: string,
             public Description: string,
             public Rank: number,
-            public IsEnabled: boolean
+            public IsEnabled: boolean,
+            public Correlated: number
         ) {
         }
     }

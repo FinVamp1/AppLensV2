@@ -65,7 +65,8 @@ module SupportCenter {
                                     item.Properties.DisplayName,
                                     item.Properties.Description,
                                     item.Properties.Rank,
-                                    item.Properties.IsEnabled);
+                                    item.Properties.IsEnabled,
+                                -1);
 
                                 detectors.push(detector);
                             }
@@ -141,7 +142,7 @@ module SupportCenter {
             })
                 .success((data: any) => {
 
-                    var response = new SiaResponse('', '', [], []);
+                    var response = new SiaResponse('', '', [], [], []);
                     if (angular.isDefined(data.Properties)) {
                         response = data.Properties;
                         this.siaResponseCache["sia"] = response;

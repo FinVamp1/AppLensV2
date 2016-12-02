@@ -70,4 +70,16 @@ module SupportCenter {
                 .replace("WebWorkerRole_IN_", "W").replace(" - aggregated", "");
         };
     });
+
+    app.filter('corelatedcolor', function () {
+        return function (input) {
+
+            if (input == 1)
+                return "#ff7043";
+            if (input == 0)
+                return "#ffc400";
+
+                return "#ffffff";
+        };
+    });
 }

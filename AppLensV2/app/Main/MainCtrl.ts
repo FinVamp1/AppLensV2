@@ -40,6 +40,23 @@ module SupportCenter {
                 self.DetectorsService.getDetectors(self.site).then(function (data: DetectorDefinition[]) {
                     self.detectors = data;
                     self.detectorListLoaded = true;
+
+                    self.DetectorsService.getAppAnalysisResponse(self.site, self.$stateParams.startTime, self.$stateParams.endTime, self.$stateParams.timeGrain).then(function (siaResponse: SiaResponse) {
+                        //do stuff here with siaResponse
+                        _.each(siaResponse.NonCorrelatedDetectors, function (item: any) {
+                            _.each(self.detectors, function (detector: any) {
+                                if (item.DisplayName == detector.DisplayName)
+                                detector.Correlated = 0;
+                            });
+                        });
+
+                        _.each(siaResponse.Payload, function (item: any) {
+                            _.each(self.detectors, function (detector: any) {
+                                if (item.DetectorDefinition.DisplayName == detector.DisplayName)
+                                    detector.Correlated = 1;
+                            });
+                        });
+                    });
                 });
             });
 

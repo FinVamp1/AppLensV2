@@ -8,7 +8,8 @@ module SupportCenter {
             public StartTime: string,
             public EndTime: string,
             public AbnormalTimePeriods: AbnormalTimePeriod[],
-            public Payload: AnalysisData[]
+            public Payload: AnalysisData[],
+            public NonCorrelatedDetectors: DetectorDefinition[]
         ) {
         }
     }

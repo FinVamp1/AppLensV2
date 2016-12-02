@@ -48,6 +48,11 @@ module SupportCenter {
                 case 'cpuanalysis':
                 case 'workeravailability':
                 case 'memoryanalysis':
+                case 'sitelatency':
+                case 'datarolelatency':
+                case 'workerlatency':
+                case 'frontendlatency':
+                case 'stampfrontendlatency':
                     options.chart.type = 'lineChart';
                     break;
             }
